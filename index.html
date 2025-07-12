@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hey sus!!!!!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.5s;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .golden-box {
+      background-color: gold;
+      padding: 20px;
+      margin: 20px auto;
+      display: inline-block;
+      border-radius: 10px;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .option-buttons, .initial-question-buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: purple;
+      font-size: 24px;
+      animation: floatUp 3s ease-in-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(2);
+      }
+    }
+
+    #no-message {
+      display: none;
+      color: white;
+      font-size: 30px;
+      margin-top: 50px;
+    }
+
+    #door {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #anti-message {
+      color: red;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTRODUCTION -->
+  <h1> "Vanakkam, doli. Naan KARTHIKA R. I know you're tired of me, and yeah, I really want to disturb you right now. As you already know, I’m mentally very unstable at the moment. I keep getting hurt by the people around me and even by my own overthinking. These days, even the tiniest things affect me deeply, something I never experienced with YOU.
+I know I need to change, at least for my own sake. I also know I might be easy to replace, and yeah… I’m aware of that too. But during this vulnerable phase, all I want is to spend some time with you—before I eventually am replaced.And if we ever fight again, please just console me with food like chicken fried rice, pav bhaji, bhel puri, or a good veg meal (preferably from Perambur Srinivasa), etc....(used chatgpt for grammatical errors)</h1>
+  <p>Before anything else.</p>
+
+  <!-- GOLDEN BOX QUESTION -->
+  <div class="golden-box">
+    I have a question for you. Wanna answer it?
+  </div>
+
+  <div class="initial-question-buttons">
+    <button onclick="startRealQuestion()">Yes</button>
+    <button onclick="showAntiMessage()">No</button>
+  </div>
+
+  <!-- ORIGINAL CONTENT (initially hidden) -->
+  <div id="love-question" style="display: none;">
+    <h1>annyeong chingudul</h1>
+    <p>is you &lt;3 me ?.</p>
+
+    <div class="option-buttons">
+      <button onclick="answerYes()">Yes</button>
+      <button onclick="answerNo()">No</button>
+    </div>
+  </div>
+
+  <div class="hearts-container" id="heartsContainer"></div>
+  <div id="no-message">leave this site you bish</div>
+  <img id="door" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" width="100" alt="door icon"/>
+
+  <!-- Anti-Indian Message -->
+  <div id="anti-message" style="display: none;">You are anti-Indian</div>
+
+  <script>
+    function startRealQuestion() {
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('p').style.display = 'none';
+      document.querySelector('.golden-box').style.display = 'none';
+      document.querySelector('.initial-question-buttons').style.display = 'none';
+      document.getElementById('love-question').style.display = 'block';
+    }
+
+    function showAntiMessage() {
+      document.getElementById('anti-message').style.display = 'block';
+      document.querySelector('.initial-question-buttons').style.display = 'none';
+    }
+
+    function answerYes() {
+      const container = document.getElementById('heartsContainer');
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.innerHTML = '💜';
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+    }
+
+    function answerNo() {
+      document.body.style.backgroundColor = 'black';
+      document.getElementById('love-question').style.display = 'none';
+      document.getElementById('no-message').style.display = 'block';
+      document.getElementById('door').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
